@@ -24,8 +24,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm install -g mocha
-    - run: npm install
+    - name: NPM installations
+    - run: |
+          npm install -g mocha
+          npm install
+    - name: NPM build
     - run: npm build
     - name: Upload
     - uses: actions/upload-artifact@v3
