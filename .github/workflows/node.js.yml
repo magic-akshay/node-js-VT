@@ -47,5 +47,3 @@ jobs:
           name: upload-site-data
       - name: Test artifact download
         run: ls -R
-      - name: Test Run
-        run: npm test
