@@ -37,7 +37,7 @@ jobs:
         name: upload-site-data
         path: src/
   test:
-    name: Build-Project
+    name: Test-Project
     runs-on: ubuntu-latest
     needs: build
     steps:
