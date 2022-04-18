@@ -43,9 +43,9 @@ jobs:
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v3
-        with
+        with:
           name: upload-site-data
       - name: Test artifact download
         run: ls -R
-    - name: Test Run
-      run: npm test
+      - name: Test Run
+        run: npm test
