@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x]
+        node-version: [10.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
     - name: Checkout Code
@@ -35,7 +35,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: upload-site-data
-        path: src/
+        path: ./
   test:
     name: Test-Project
     runs-on: ubuntu-latest
@@ -47,12 +47,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: upload-site-data
-          path: src/
+          path: ./
       - name: Test artifact download
         run: ls -R
-      - name: npm install, and test
-        run: |
-          npm install
-          npm test
+      - name: npm test
+        run: npm test
         env:
           CI: true
