@@ -50,7 +50,6 @@ jobs:
     - name: npm test
       run: |
         npm i -g mocha
-        npm install
-        mocha tests/*
+        npm test
       env:
         CI: true
