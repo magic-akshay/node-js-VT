@@ -47,3 +47,9 @@ jobs:
           name: upload-site-data
       - name: Test artifact download
         run: ls -R
+      - name: npm install, and test
+        run: |
+          npm install
+          npm test
+        env:
+          CI: true
