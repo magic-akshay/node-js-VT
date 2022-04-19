@@ -49,7 +49,7 @@ jobs:
       run: ls -R
     - name: npm test
       run: |
-        chmod 077 .
+        chmod 0777 .
         npm install
         npm test
       env:
