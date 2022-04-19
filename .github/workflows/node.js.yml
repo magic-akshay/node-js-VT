@@ -49,8 +49,8 @@ jobs:
       run: ls -R
     - name: npm test
       run: |
-        chmod 0777 .
+        npm i -g mocha
         npm install
-        npm test
+        mocha tests/*
       env:
         CI: true
