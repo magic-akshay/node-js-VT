@@ -48,6 +48,8 @@ jobs:
     - name: Test artifact download
       run: ls -R
     - name: npm test
-      run: npm test
+      run: |
+        npm install
+        npm test
       env:
         CI: true
