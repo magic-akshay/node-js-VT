@@ -47,7 +47,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: upload-site-data
-          path: ./
       - name: Test artifact download
         run: ls -R
       - name: npm test
