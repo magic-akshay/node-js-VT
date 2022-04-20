@@ -31,20 +31,20 @@ jobs:
           npm install
     - name: NPM build
       run: npm build
-    - name: Upload artifact
+    - name: Upload artifact from build
       uses: actions/upload-artifact@v3
       with:
-        name: upload-site-data
+        name: upload-site-data-build
         path: ./
   test:
     name: Test-Project
     runs-on: ubuntu-latest
     needs: build
     steps:
-    - name: Download artifact
+    - name: Download artifact from build
       uses: actions/download-artifact@v3
       with:
-        name: upload-site-data
+        name: upload-site-data-build
     - name: Test artifact download
       run: ls -R
     - name: npm test
@@ -53,3 +53,18 @@ jobs:
         npm test
       env:
         CI: true
+    - name: Upload artifact from test
+      uses: actions/upload-artifact@v3
+      with:
+        name: upload-site-data-test
+        path: ./
+  deploy:
+    name: Deploy-Project
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+    - name: Download artifact from test
+      uses: actions/download-artifact@v3
+      with:
+        name: upload-site-data-test
+  
